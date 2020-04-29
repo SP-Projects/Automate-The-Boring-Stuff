@@ -36,7 +36,7 @@ while not xkcd_url.endswith('#'):
     comic_elem = soup_xkcd.select('#comic img')
     #remember: .select() returns list of html elements
 
-    if comic_elem == []:
+    if comic_elem == [] or 'img' not in comic_elem[0].get('src'):
         print('Could not find comic image')
     else:
         comic_url = 'https:' + comic_elem[0].get('src')
